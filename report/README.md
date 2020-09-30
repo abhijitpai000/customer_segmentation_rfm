@@ -13,13 +13,19 @@ Using this randomly generated cluster numbers (0 to 4) as scores, I re-structure
 * **Frequency:** Transactions Count.
 * **Monetary Value:** Average Monetary Value Generated. 
 
+*Recency, Frequency and Monetary Value Clusters*
+<p float="left">
+  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_1.png" width="250" />
+  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_3.png" width="250" /> 
+  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_5.png" width="250" />
+</p>
 
 
 **Data Source :**
 
 To perform this study I used a [Online Retail](https://www.kaggle.com/vijayuv/onlineretail) dataset from Kaggle.
 
-
+# Analysis Walk-through
 
 **Table of Contents**
 
@@ -27,7 +33,6 @@ To perform this study I used a [Online Retail](https://www.kaggle.com/vijayuv/on
 1. [Introduction](#introduction)
 2. [EDA](#eda)
 3. [KMeans Clustering](#kmeans)
-    1. [RFM Scores with Segments](#rfm_scores)
 
 
 ```python
@@ -39,21 +44,16 @@ os.chdir(FILE_PATH)   # Changes cwd
 os.getcwd()   # Prints cwd
 ```
 
-# Introduction <a name="introduction"></a>
-
-**Reproduce Code:**
-
-To ensure reproducibility of this study, I put together a python package stored in 'src' directory of the GitHub Repo.
+# # Package Introduction <a name="introduction"></a>
 
 **Codebase Structure**
 
 | Module | Function | Description |
 | :--- | :--- | :--- |
-| datasets | load_raw() | Loads .csv file stored in '../src/datasets/OnlineRetail.csv'
-| preprocess | clean_data() | Performs pre-processing and stores data frame in '../src/datasets/preprocessed.csv'
+| preprocess | clean_data() | Performs pre-processing and stores data frame in 'datasets/preprocessed.csv'
 | features | add_features() | Computes Recency, Frequency and Monetary Values for each customer.
-| models | train_model() | trains k-means model saves model in '../src/pickle_models/..', and final rfm_scores as .csv in '../src/datasets/rfm_scores.csv'
-| plots | generate_plots | Generates Distribution, Cat and Scatter Plots.
+| models | train_model() | trains k-means model saves model in 'models/..', and final rfm_scores as .csv in 'datasets/rfm_scores.csv'
+| plots | generate_plots() | Generates Distribution and Cat plots.
 
 
 ```python
@@ -81,19 +81,6 @@ retail_raw.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -191,19 +178,6 @@ retail.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -251,8 +225,8 @@ retail.head(3)
 **Actions - add_features():** Computes the following using 'InvoiceDate' of each customer transaction.
 
 * Recency = (Closing Transaction Date - Recent Transaction Date) + 1
-* Frequency = Number of purchases
-* Monetary Value = Max Revenue Generated (Unit Price x Quantity)
+* Frequency = Purchase Count.
+* Monetary Value = Average Revenue Generated per transaction (Unit Price x Quantity)
 
 
 ```python
@@ -270,19 +244,6 @@ customers.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -341,7 +302,7 @@ generate_plots(customers, plot_type="distribution")
 ```
 
 
-![png](output_14_0.png)
+![png](https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_14_0.png)
 
 
 # K-Means Clustering for Recency, Frequency, Monetary Value <a name="kmeans"></a>
@@ -367,19 +328,6 @@ customers.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -454,7 +402,7 @@ generate_plots(customers, plot_type="cat_plot")
 
 
 
-![png](output_18_1.png)
+![png](https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_1.png)
 
 
 
@@ -462,7 +410,7 @@ generate_plots(customers, plot_type="cat_plot")
 
 
 
-![png](output_18_3.png)
+![png](https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_3.png)
 
 
 
@@ -470,7 +418,7 @@ generate_plots(customers, plot_type="cat_plot")
 
 
 
-![png](output_18_5.png)
+![png](https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/report/figures/output_18_5.png)
 
 
 **End**
