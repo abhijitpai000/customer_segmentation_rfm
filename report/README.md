@@ -312,7 +312,6 @@ generate_plots(customers, plot_type="distribution")
 * Trains K-Means models.
 * Re-structures K-Means cluster numbers, ensuring "higher the better"
 * Computes Aggregated RFM Score for each customer.
-* Categorizes RFM Score into 3 Segments: low_score, medium_score & high_score
 
 
 ```python
