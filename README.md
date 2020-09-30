@@ -27,13 +27,6 @@ Using this randomly generated cluster numbers (0 to 4) as scores, I re-structure
 
 To perform this study I used [Online Retail](https://www.kaggle.com/vijayuv/onlineretail) dataset.
 
-**Customer Groups: RFM Scores:**
-<p float="left">
-  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/figures/recencyscore.png" width="250" />
-  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/figures/frequencyscore.png" width="250" /> 
-  <img src="https://github.com/abhijitpai000/customer_segmentation_rfm/blob/master/figures/monetaryvaluescore.png" width="250" />
-</p>
-
 ## Final Report & Package Walk-Through
 
 To reproduce this study, use modules in 'src' directory of this repo. (setup instructions below) and walk-through of the package is presented in the [final report](https://github.com/abhijitpai000/customer_segmentation_rfm/tree/master/report)
