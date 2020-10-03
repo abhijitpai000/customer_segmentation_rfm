@@ -21,9 +21,10 @@ Using this randomly generated cluster numbers (0 to 4) as scores, I re-structure
 </p>
 
 
-**Data Source :**
+## About Online Retail Dataset
+This dataset contains transactional data of a UK-based online store.
 
-To perform this study I used a [Online Retail](https://www.kaggle.com/vijayuv/onlineretail) dataset from Kaggle.
+**Source** [Online Retail](https://www.kaggle.com/vijayuv/onlineretail)
 
 # Analysis Walk-through
 
@@ -160,12 +161,16 @@ retail = clean_data(raw_file_name="OnlineRetail.csv", save_data=True)
 
 ```python
 retail.shape
+
+"""
+    (337342, 5)
+"""
 ```
 
 
 
 
-    (337342, 5)
+
 
 
 
@@ -285,12 +290,16 @@ customers.head(3)
 
 ```python
 customers.shape
+
+"""
+    (3835, 4)
+"""
 ```
 
 
 
 
-    (3835, 4)
+
 
 
 
